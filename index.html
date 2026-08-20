@@ -1,0 +1,423 @@
+Below is a complete landing page for **Deespark Wellness Company**, inspired by the layout of typical wellness/herbal product sites like topmowellness.com.  
+
+The **Order Now** buttons are linked to WhatsApp with the number **09030325735**, and each button sends a pre-filled message for the selected product.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deespark Wellness Company | Herbal Health Products</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background-color: #f9fdf9;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      background: #0b3d2e;
+      padding: 15px 0;
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #ffd700;
+    }
+
+    .logo span {
+      font-size: 0.9rem;
+      color: #d4edda;
+      display: block;
+      font-weight: 400;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffd700;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #0b3d2e, #1a7a56);
+      color: #fff;
+      padding: 70px 0;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 30px;
+      color: #e0f2e9;
+    }
+
+    .btn-whatsapp {
+      display: inline-block;
+      background: #25d366;
+      color: #fff;
+      padding: 15px 35px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 600;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-whatsapp:hover {
+      background: #1eb85c;
+      transform: translateY(-2px);
+    }
+
+    /* Sections */
+    .section {
+      padding: 60px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+      color: #0b3d2e;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: #555;
+      margin-bottom: 40px;
+      font-size: 1.1rem;
+    }
+
+    /* Product Cards */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-align: center;
+      border: 1px solid #e6f2e6;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .product-image {
+      background: #f0f7f0;
+      padding: 30px;
+      font-size: 4rem;
+    }
+
+    .product-image img {
+      max-width: 100%;
+      max-height: 180px;
+      object-fit: contain;
+    }
+
+    .product-body {
+      padding: 25px;
+    }
+
+    .product-body h3 {
+      font-size: 1.4rem;
+      color: #0b3d2e;
+      margin-bottom: 10px;
+    }
+
+    .product-body p {
+      color: #555;
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+    }
+
+    .order-btn {
+      display: inline-block;
+      background: #0b3d2e;
+      color: #fff;
+      padding: 12px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .order-btn:hover {
+      background: #1a7a56;
+    }
+
+    /* Why Choose Us */
+    .why-us {
+      background: #eef7ee;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .why-item {
+      text-align: center;
+      padding: 30px 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .why-item .icon {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+
+    .why-item h4 {
+      color: #0b3d2e;
+      margin-bottom: 10px;
+    }
+
+    /* Footer */
+    footer {
+      background: #0b3d2e;
+      color: #fff;
+      padding: 30px 0;
+      text-align: center;
+    }
+
+    footer a {
+      color: #ffd700;
+      text-decoration: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header-inner {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav ul {
+        justify-content: center;
+      }
+
+      .hero h2 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container header-inner">
+      <div class="logo">
+        <h1>Deespark Wellness</h1>
+        <span>Natural Health & Herbal Products</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#why-us">Why Us</a></li>
+          <li><a href="https://wa.me/2349030325735" target="_blank">WhatsApp</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h2>Your Health, Our Herbal Solution</h2>
+      <p>Discover Deespark Wellness herbal capsules and supplements for ulcer, high blood pressure, infections and overall wellness.</p>
+      <a class="btn-whatsapp" href="https://wa.me/2349030325735?text=Hello%20Deespark%20Wellness%2C%20I%20want%20to%20make%20an%20order." target="_blank">
+        Order on WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section class="section" id="products">
+    <div class="container">
+      <h2 class="section-title">Our Products</h2>
+      <p class="section-subtitle">High-quality herbal capsules and wellness supplements</p>
+
+      <div class="product-grid">
+
+        <!-- Orzaklin -->
+        <div class="product-card">
+          <div class="product-image">🌿</div>
+          <div class="product-body">
+            <h3>Orzaklin Herbal Capsule</h3>
+            <p>Specially formulated for ulcer relief and digestive wellness.</p>
+            <a class="order-btn" href="https://wa.me/2349030325735?text=Hello%20Deespark%20Wellness%2C%20I%20want%20to%20order%20Orzaklin%20Herbal%20Capsule%20for%20Ulcer." target="_blank">
+              Order Now
+            </a>
+          </div>
+        </div>
+
+        <!-- Deenormalizer -->
+        <div class="product-card">
+          <div class="product-image">🌿</div>
+          <div class="product-body">
+            <h3>Deenormalizer Herbal Capsule</h3>
+            <p>Helps maintain healthy blood pressure and cardiovascular function.</p>
+            <a class="order-btn" href="https://wa.me/2349030325735?text=Hello%20Deespark%20Wellness%2C%20I%20want%20to%20order%20Deenormalizer%20Herbal%20Capsule%20for%20High%20BP." target="_blank">
+              Order Now
+            </a>
+          </div>
+        </div>
+
+        <!-- Invekior -->
+        <div class="product-card">
+          <div class="product-image">🌿</div>
+          <div class="product-body">
+            <h3>Invekior Herbal Capsule</h3>
+            <p>Powerful herbal support for infections and improved immunity.</p>
+            <a class="order-btn" href="https://wa.me/2349030325735?text=Hello%20Deespark%20Wellness%2C%20I%20want%20to%20order%20Invekior%20Herbal%20Capsule%20for%20Infections." target="_blank">
+              Order Now
+            </a>
+          </div>
+        </div>
+
+        <!-- Unisex Spec -->
+        <div class="product-card">
+          <div class="product-image">🧬</div>
+          <div class="product-body">
+            <h3>Unisex Spec</h3>
+            <p>Premium all-round wellness supplement suitable for both men and women.</p>
+            <a class="order-btn" href="https://wa.me/2349030325735?text=Hello%20Deespark%20Wellness%2C%20I%20want%20to%20order%20Unisex%20Spec." target="_blank">
+              Order Now
+            </a>
+          </div>
+        </div>
+
+        <!-- Classy Female Spec -->
+        <div class="product-card">
+          <div class="product-image">🌸</div>
+          <div class="product-body">
+            <h3>Classy Female Spec</h3>
+            <p>Nourishes feminine wellness, glow, and everyday vitality.</p>
+            <a class="order-btn" href="https://wa.me/2349030325735?text=Hello%20Deespark%20Wellness%2C%20I%20want%20to%20order%20Classy%20Female%20Spec." target="_blank">
+              Order Now
+            </a>
+          </div>
+        </div>
+
+        <!-- Boss Lady Female Spec -->
+        <div class="product-card">
+          <div class="product-image">💪</div>
+          <div class="product-body">
+            <h3>Boss Lady Female Spec</h3>
+            <p>Empowering women’s health, energy, and confidence.</p>
+            <a class="order-btn" href="https://wa.me/2349030325735?text=Hello%20Deespark%20Wellness%2C%20I%20want%20to%20order%20Boss%20Lady%20Female%20Spec." target="_blank">
+              Order Now
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="section why-us" id="why-us">
+    <div class="container">
+      <h2 class="section-title">Why Choose Deespark Wellness?</h2>
+      <div class="why-grid">
+        <div class="why-item">
+          <div class="icon">🌱</div>
+          <h4>100% Natural</h4>
+          <p>We use natural herbal ingredients.</p>
+        </div>
+        <div class="why-item">
+          <div class="icon">🛡️</div>
+          <h4>Trusted Quality</h4>
+          <p>Carefully formulated and quality tested.</p>
+        </div>
+        <div class="why-item">
+          <div class="icon">🚚</div>
+          <h4>Fast Delivery</h4>
+          <p>Quick and reliable nationwide delivery.</p>
+        </div>
+        <div class="why-item">
+          <div class="icon">💬</div>
+          <h4>Order Easily</h4>
+          <p>Simple WhatsApp ordering from anywhere.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p><strong>Deespark Wellness Company</strong></p>
+      <p>For orders and inquiries: <a href="https://wa.me/2349030325735" target="_blank">09030325735</a></p>
+      <p style="margin-top:10px; font-size:0.85rem; color:#a3d9b1;">&copy; 2025 Deespark Wellness. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
+```
+
+### Important:
+- The WhatsApp number is formatted as `2349030325735` because the international format for Nigeria is `+234` + `9030325735`.
+- Each “Order Now” button includes a pre-filled message for the specific product.
+- Replace the placeholder icons (🌿 etc.) with actual product images when you have them.
